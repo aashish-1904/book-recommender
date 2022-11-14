@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    .text-white {
+        color: white
+    }
+</style>
+<body style="background-color: black;">
+    
+<!-- <nav class="navbar" style="background-color: #00a65a;">
+<a class="navbar-brand">📚 My Book Recommender</a>
+<ul class="nav navbar-nav">
+    <li><a>Home</a></li>
+    <li><a>Recommend</a></li>
+    <li><a>Contact</a></li>
+</ul>
+</nav> -->
 
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="/" >📚 Book Recommender</a>
+    <div class="text-right"></div>
+        <button class="btn btn-outline-info mr-auto" onclick="window.location.href='/';">Top</button>
+        <button class="btn btn-outline-warning" onclick="window.location.href='/recommend';">Recommend</button>
+    </div>
+  </nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-white">Top 50 Books</h1>
+        </div>
+
+
+    {% for i in range(book_name|length) %}
+    <div class="card bg-dark mb-3" style="width: 20rem; margin-left: 2rem; margin-top: 50px;">
+        <img class="card-img-top" src="{{ image[i] }}" style="height:400px">
+        <div class="card-body">
+          <h5 class="card-title text-white" style="margin-bottom: 0px;">{{ book_name[i] }}</h5>
+        </div>
+        <ul class="list-group list-group-flush text-white">
+          <li class="list-group-item" style="background-color: transparent;"><h6>{{ author[i] }}</h6></li>
+          <li class="list-group-item" style="background-color: transparent;">Votes: {{ votes[i] }}</li>
+          <li class="list-group-item" style="background-color: transparent;">⭐️ : {{ rating[i] }}</li>
+        </ul>
+      </div>
+
+      {% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>
